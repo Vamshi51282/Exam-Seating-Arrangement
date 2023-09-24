@@ -1,0 +1,80 @@
+package fileoperation;//packages save as exam2.java
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+class Exe{
+Exe(){
+              super();// super keyword
+              System.out.println("........................................................................................");
+              System.out.println("WELCOME TO EXAM CENTER");//constructor overloading
+               System.out.println("*********");
+              System.out.println("Have a Great Exam");
+              System.out.println("*********");
+
+                }
+Exe(int a){
+               System.out.println("ALL THE BEST TO BATCH "+a);
+                System.out.println("*********");
+
+               }
+
+}
+interface A{
+void show();
+}
+class s1 implements A//interface
+{
+    public void show()// show method
+        {
+            System.out.println("Instructions to students:\n1.Please Maintain social distance\n2.Carry your own belongings\n3.Don't try to Malpractice");
+         }
+}
+class s2 implements A//interface
+{
+    public void show()
+        {
+            System.out.println("We are here to help you if you have any doubts\nIf You have any doubts come to counter-1");
+         }
+}
+ 
+public class exam2 {// public access modifier
+	public static void main(String[] args){
+                     Exe obj2=new Exe();
+                     Exe obj1=new Exe(2022);
+                     A ref;
+                     ref =new s1();
+                     ref.show(); 
+                     ref =new s2();
+                     ref.show();
+           Scanner sc1=new Scanner(System.in);
+         System.out.println("enter hallticket number:");
+          String str =sc1.nextLine();
+          String line=" ";
+         try{//exceptions
+               FileInputStream fin=new FileInputStream("C:\\java\\file1.txt");//streams
+               Scanner sc=new Scanner(fin);
+              while(sc.hasNext())//to literate to next line.
+               {
+                   line=sc.nextLine();//string method
+                    if(line.startsWith(str))//to compare from starting letter to end letter
+                           {
+                                  System.out.println(line);
+                                  Thread t=new Thread("THANK YOU");//Thread
+                                 t.start();
+                                 String str1=t.getName();//thread method (get name)
+                                  System.out.println(str1);
+    
+                                   System.exit(0);
+                             } //sc.close()
+                  }
+                       System.out.println("your details are not found");
+                       
+           }
+           catch(IOException ioe)
+               {
+                        ioe.printStackTrace();
+                }
+              System.out.println("Thank you");
+               
+        	}
+}
